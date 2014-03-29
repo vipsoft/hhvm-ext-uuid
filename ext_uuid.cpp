@@ -190,7 +190,7 @@ static Variant HHVM_FUNCTION(uuid_variant, const String& uuid) {
 
 class uuidExtension: public Extension {
 public:
-  uuidExtension(): Extension("uuid", NO_EXTENSION_VERSION_YET) {}
+  uuidExtension(): Extension("uuid", "1.0.3") {}
   virtual void moduleInit() {
     Native::registerConstant<KindOfInt64>(s_UUID_VARIANT_NCS.get(), k_UUID_VARIANT_NCS);
     Native::registerConstant<KindOfInt64>(s_UUID_VARIANT_DCE.get(), k_UUID_VARIANT_DCE);
