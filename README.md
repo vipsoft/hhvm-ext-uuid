@@ -6,7 +6,7 @@ This is a port of the PECL uuid extension for HipHop Virtual Machine.
 
 This extension requires the `<uuid/uuid.h>` header file and `libuuid` library installed.
 
-On Ubuntu 12.04, you need to install the "uuid-dev" and "libuuid1" packakges.
+On Ubuntu 12.04, you need to install the "uuid-dev" and "libuuid1" packages.
 
 ### Building & Installation
 
