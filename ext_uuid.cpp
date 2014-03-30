@@ -30,24 +30,34 @@ namespace HPHP {
 
 const StaticString s_UUID_VARIANT_NCS("UUID_VARIANT_NCS");
 const int64_t k_UUID_VARIANT_NCS = UUID_VARIANT_NCS;
+
 const StaticString s_UUID_VARIANT_DCE("UUID_VARIANT_DCE");
 const int64_t k_UUID_VARIANT_DCE = UUID_VARIANT_DCE;
+
 const StaticString s_UUID_VARIANT_MICROSOFT("UUID_VARIANT_MICROSOFT");
 const int64_t k_UUID_VARIANT_MICROSOFT = UUID_VARIANT_MICROSOFT;
+
 const StaticString s_UUID_VARIANT_OTHER("UUID_VARIANT_OTHER");
 const int64_t k_UUID_VARIANT_OTHER = UUID_VARIANT_OTHER;
+
 const StaticString s_UUID_TYPE_DEFAULT("UUID_TYPE_DEFAULT");
 const int64_t k_UUID_TYPE_DEFAULT = UUID_TYPE_DEFAULT;
+
 const StaticString s_UUID_TYPE_TIME("UUID_TYPE_TIME");
 const int64_t k_UUID_TYPE_TIME = UUID_TYPE_DCE_TIME;
+
 const StaticString s_UUID_TYPE_DCE("UUID_TYPE_DCE");
 const int64_t k_UUID_TYPE_DCE = UUID_TYPE_DCE_RANDOM;
+
 const StaticString s_UUID_TYPE_NAME("UUID_TYPE_NAME");
 const int64_t k_UUID_TYPE_NAME = UUID_TYPE_DCE_TIME;
+
 const StaticString s_UUID_TYPE_RANDOM("UUID_TYPE_RANDOM");
 const int64_t k_UUID_TYPE_RANDOM = UUID_TYPE_DCE_RANDOM;
+
 const StaticString s_UUID_TYPE_NULL("UUID_TYPE_NULL");
 const int64_t k_UUID_TYPE_NULL = UUID_TYPE_NULL;
+
 const StaticString s_UUID_TYPE_INVALID("UUID_TYPE_INVALID");
 const int64_t k_UUID_TYPE_INVALID = UUID_TYPE_INVALID;
 
@@ -116,9 +126,9 @@ static Variant HHVM_FUNCTION(uuid_mac, const String& uuid) {
 
     CHECK_UUID(uuid, u)
 
-    if (uuid_variant(u) != 1 ||
-        uuid_type(u) != 1 ||
-        (u[10] & 0x01)            // invalid MAC if the multicast bit is set
+    if (uuid_variant(u) != UUID_VARIANT_DCE ||
+        uuid_type(u) != UUID_TYPE_DCE_TIME ||
+        (u[10] & 0x01) // fake MAC address if the multicast bit is set
     ) {
         return Variant(false);
     }
@@ -141,8 +151,8 @@ static Variant HHVM_FUNCTION(uuid_time, const String& uuid) {
 
     CHECK_UUID(uuid, u)
 
-    if ( uuid_variant(u) != 1 ||
-        uuid_type(u) != 1
+    if (uuid_variant(u) != UUID_VARIANT_DCE ||
+        uuid_type(u) != UUID_TYPE_DCE_TIME
     ) {
         return Variant(false);
     }
