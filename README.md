@@ -10,7 +10,7 @@ On Ubuntu 12.04, you need to install the "uuid-dev" and "libuuid1" packakges.
 
 ### Building & Installation
 
-Requires a HHVM 3.0 or later.
+Requires HHVM 3.0 or later.
 
 ~~~
 $ export HPHP_HOME=/path/to/hhvm
@@ -33,3 +33,12 @@ DynamicExtensions {
 Where `/path/to/hhvm/extensions` is a folder containing all HHVM extensions,
 and `uuid.so` is in it. This will cause the extension to be loaded when the
 virtual machine starts up.
+
+### Testing
+
+To run the test suite:
+
+~~~
+$ cd /path/to/extension
+$ ./test.sh run-tests.php
+~~~
