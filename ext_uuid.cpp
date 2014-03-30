@@ -118,7 +118,7 @@ static Variant HHVM_FUNCTION(uuid_mac, const String& uuid) {
 
     if (uuid_variant(u) != 1 ||
         uuid_type(u) != 1 ||
-        (uuid.c_str()[10] & 0x80) // invalid MAC
+        (u[10] & 0x01)            // invalid MAC if the multicast bit is set
     ) {
         return Variant(false);
     }
