@@ -10,7 +10,6 @@
  *                 if uuid1 is lexicographically less than, equal to, or
  *                 greater than uuid2.
  *                 Returns false if either uuid1 or uuid2 are invalid UUIDs.
- *
  */
 <<__Native>> function uuid_compare (string $uuid1, string $uuid2): mixed;
 
