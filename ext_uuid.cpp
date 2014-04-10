@@ -199,35 +199,38 @@ static Variant HHVM_FUNCTION(uuid_variant, const String& uuid) {
 ////////////////////////////////////////////////////////////////////////////////
 
 class uuidExtension: public Extension {
-public:
-  uuidExtension(): Extension("uuid", "1.0.3") {}
-  virtual void moduleInit() {
-    Native::registerConstant<KindOfInt64>(s_UUID_VARIANT_NCS.get(), k_UUID_VARIANT_NCS);
-    Native::registerConstant<KindOfInt64>(s_UUID_VARIANT_DCE.get(), k_UUID_VARIANT_DCE);
-    Native::registerConstant<KindOfInt64>(s_UUID_VARIANT_MICROSOFT.get(), k_UUID_VARIANT_MICROSOFT);
-    Native::registerConstant<KindOfInt64>(s_UUID_VARIANT_OTHER.get(), k_UUID_VARIANT_OTHER);
-    Native::registerConstant<KindOfInt64>(s_UUID_TYPE_DEFAULT.get(), k_UUID_TYPE_DEFAULT);
-    Native::registerConstant<KindOfInt64>(s_UUID_TYPE_TIME.get(), k_UUID_TYPE_TIME);
-    Native::registerConstant<KindOfInt64>(s_UUID_TYPE_DCE.get(), k_UUID_TYPE_DCE);
-    Native::registerConstant<KindOfInt64>(s_UUID_TYPE_NAME.get(), k_UUID_TYPE_NAME);
-    Native::registerConstant<KindOfInt64>(s_UUID_TYPE_RANDOM.get(), k_UUID_TYPE_RANDOM);
-    Native::registerConstant<KindOfInt64>(s_UUID_TYPE_NULL.get(), k_UUID_TYPE_NULL);
-    Native::registerConstant<KindOfInt64>(s_UUID_TYPE_INVALID.get(), k_UUID_TYPE_INVALID);
-    HHVM_FE(uuid_compare);
-    HHVM_FE(uuid_create);
-    HHVM_FE(uuid_is_null);
-    HHVM_FE(uuid_is_valid);
-    HHVM_FE(uuid_mac);
-    HHVM_FE(uuid_parse);
-    HHVM_FE(uuid_time);
-    HHVM_FE(uuid_type);
-    HHVM_FE(uuid_unparse);
-    HHVM_FE(uuid_variant);
+    public:
+        uuidExtension(): Extension("uuid", "1.0.3") {}
 
-    loadSystemlib();
-  }
+        virtual void moduleInit() {
+
+        Native::registerConstant<KindOfInt64>(s_UUID_VARIANT_NCS.get(), k_UUID_VARIANT_NCS);
+        Native::registerConstant<KindOfInt64>(s_UUID_VARIANT_DCE.get(), k_UUID_VARIANT_DCE);
+        Native::registerConstant<KindOfInt64>(s_UUID_VARIANT_MICROSOFT.get(), k_UUID_VARIANT_MICROSOFT);
+        Native::registerConstant<KindOfInt64>(s_UUID_VARIANT_OTHER.get(), k_UUID_VARIANT_OTHER);
+        Native::registerConstant<KindOfInt64>(s_UUID_TYPE_DEFAULT.get(), k_UUID_TYPE_DEFAULT);
+        Native::registerConstant<KindOfInt64>(s_UUID_TYPE_TIME.get(), k_UUID_TYPE_TIME);
+        Native::registerConstant<KindOfInt64>(s_UUID_TYPE_DCE.get(), k_UUID_TYPE_DCE);
+        Native::registerConstant<KindOfInt64>(s_UUID_TYPE_NAME.get(), k_UUID_TYPE_NAME);
+        Native::registerConstant<KindOfInt64>(s_UUID_TYPE_RANDOM.get(), k_UUID_TYPE_RANDOM);
+        Native::registerConstant<KindOfInt64>(s_UUID_TYPE_NULL.get(), k_UUID_TYPE_NULL);
+        Native::registerConstant<KindOfInt64>(s_UUID_TYPE_INVALID.get(), k_UUID_TYPE_INVALID);
+
+        HHVM_FE(uuid_compare);
+        HHVM_FE(uuid_create);
+        HHVM_FE(uuid_is_null);
+        HHVM_FE(uuid_is_valid);
+        HHVM_FE(uuid_mac);
+        HHVM_FE(uuid_parse);
+        HHVM_FE(uuid_time);
+        HHVM_FE(uuid_type);
+        HHVM_FE(uuid_unparse);
+        HHVM_FE(uuid_variant);
+
+        loadSystemlib();
+    }
 } s_uuid_extension;
 
 HHVM_GET_MODULE(uuid);
 
-}
+} /* namespace HPHP */
