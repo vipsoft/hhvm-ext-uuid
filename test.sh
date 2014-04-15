@@ -8,4 +8,4 @@ fi
 
 export TEST_PHP_EXECUTABLE=$0
 
-${HPHP_HOME}/hphp/hhvm/hhvm -vDynamicExtensions.0=${DIRNAME}/uuid.so $@
+${HPHP_HOME}/hphp/hhvm/hhvm --php -z ${DIRNAME}/uuid.so $@
