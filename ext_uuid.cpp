@@ -93,7 +93,7 @@ static String HHVM_FUNCTION(uuid_create, int64_t uuid_type /* = NULL */) {
             break;
         default:
             raise_warning(
-                "Unknown/invalid UUID type '%ld' requested, using default type instead",
+                "uuid_create(): Unknown/invalid UUID type '%ld' requested, using default type instead",
                 uuid_type
             );
             uuid_generate(u);
