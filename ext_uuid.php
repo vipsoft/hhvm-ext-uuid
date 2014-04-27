@@ -11,7 +11,7 @@
  *                 greater than uuid2.
  *                 Returns false if either uuid1 or uuid2 are invalid UUIDs.
  */
-<<__Native>> function uuid_compare (string $uuid1, string $uuid2): mixed;
+<<__Native>> function uuid_compare(string $uuid1, string $uuid2): mixed;
 
 /**
  * uuid_create() - creates a new universally unique identifier (UUID)
@@ -20,7 +20,7 @@
  *
  * @return string - A 36 byte string representation of the UUID
  */
-<<__Native>> function uuid_create (int $uuid_type = NULL): string;
+<<__Native>> function uuid_create(int $uuid_type = NULL): string;
 
 /**
  * uuid_is_null() - compare the value of the UUID to NULL UUID
@@ -31,7 +31,7 @@
  *                00000000-0000-0000-0000-000000000000.
  *                Otherwise it returns false.
  */
-<<__Native>> function uuid_is_null (string $uuid): bool;
+<<__Native>> function uuid_is_null(string $uuid): bool;
 
 /**
  * uuid_is_valid() - compare the UUID to the expected format
@@ -42,7 +42,7 @@
  *                representation.
  *                Otherwise it returns false.
  */
-<<__Native>> function uuid_is_valid (string $uuid): bool;
+<<__Native>> function uuid_is_valid(string $uuid): bool;
 
 /**
  * uuid_mac() - extract MAC address from UUID
@@ -53,7 +53,7 @@
  *                 contains a MAC address.
  *                 Otherwise it returns false.
  */
-<<__Native>> function uuid_mac (string $uuid): mixed;
+<<__Native>> function uuid_mac(string $uuid): mixed;
 
 /**
  * uuid_parse() - convert UUID string representation to binary
@@ -63,7 +63,7 @@
  * @return mixed - Returns a 16 byte binary representation of the UUID.
  *                 Otherwise it returns false.
  */
-<<__Native>> function uuid_parse (string $uuid): mixed;
+<<__Native>> function uuid_parse(string $uuid): mixed;
 
 /**
  * uuid_time() - extract the time at which the UUID was created
@@ -74,7 +74,7 @@
  *                 an encoded timestamp.
  *                 Otherwise it returns false.
  */
-<<__Native>> function uuid_time (string $uuid): mixed;
+<<__Native>> function uuid_time(string $uuid): mixed;
 
 /**
  * uuid_type() - extract the UUID type
@@ -85,7 +85,7 @@
  *                 UUID_TYPE_OTHER if uuid is a valid UUID.
  *                 Otherwise it returns false.
  */
-<<__Native>> function uuid_type (string $uuid): mixed;
+<<__Native>> function uuid_type(string $uuid): mixed;
 
 /**
  * uuid_unparse() - convert UUID binary representation to human readable string
@@ -95,7 +95,7 @@
  * @return mixed - Returns a 36 byte string representation of the UUID.
  *                 Otherwise it returns false.
  */
-<<__Native>> function uuid_unparse (string $u): mixed;
+<<__Native>> function uuid_unparse(string $u): mixed;
 
 /**
  * uuid_variant() - extract the UUID variant
@@ -107,4 +107,4 @@
  *                 valid UUID.
  *                 Otherwise it returns false.
  */
-<<__Native>> function uuid_variant (string $uuid): mixed;
+<<__Native>> function uuid_variant(string $uuid): mixed;
