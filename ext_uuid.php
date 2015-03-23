@@ -20,7 +20,7 @@
  *
  * @return string - A 36 byte string representation of the UUID
  */
-<<__Native>> function uuid_create(int $uuid_type = NULL): string;
+<<__Native>> function uuid_create(?int $uuid_type = NULL): string;
 
 /**
  * uuid_is_null() - compare the value of the UUID to NULL UUID

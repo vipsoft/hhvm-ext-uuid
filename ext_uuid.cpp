@@ -77,26 +77,35 @@ static Variant HHVM_FUNCTION(uuid_compare, const String& uuid1, const String& uu
     return Variant(uuid_compare(u1, u2));
 }
 
-static String HHVM_FUNCTION(uuid_create, int64_t uuid_type /* = NULL */) {
+static String HHVM_FUNCTION(uuid_create, const Variant& uuid_type) {
     uuid_t u;
     char uuid_str[UUID_BUF_LEN];
+    int64_t uuid_type_value = UUID_TYPE_DEFAULT;
 
-    switch (uuid_type) {
+    if (uuid_type.isInteger()) {
+        uuid_type_value = uuid_type.getInt64();
+    } else if (! uuid_type.isNull()) {
+        raise_param_type_warning("uuid_create", 2, KindOfInt64, uuid_type.getType());
+
+        uuid_type_value = UUID_TYPE_DEFAULT;
+    }
+
+    switch (uuid_type_value) {
         case UUID_TYPE_DCE_TIME:
             uuid_generate_time(u);
             break;
         case UUID_TYPE_DCE_RANDOM:
             uuid_generate_random(u);
             break;
-        case UUID_TYPE_DEFAULT:
-            uuid_generate(u);
-            break;
         default:
             raise_warning(
                 "uuid_create(): Unknown/invalid UUID type '%ld' requested, using default type instead",
-                uuid_type
+                uuid_type_value
             );
+            /* fall through */
+        case UUID_TYPE_DEFAULT:
             uuid_generate(u);
+            break;
     }
 
     uuid_unparse(u, uuid_str);
