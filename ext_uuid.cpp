@@ -18,7 +18,7 @@
    +----------------------------------------------------------------------+
 */
 
-#include "hphp/runtime/base/base-includes.h"
+#include "hphp/runtime/ext/extension.h"
 #include <cinttypes>
 #include <uuid/uuid.h>
 
